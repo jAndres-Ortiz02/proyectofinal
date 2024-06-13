@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - 27017:27017
+
+  app:
+    image: appUniversidad/aplicacion
+    container_name: app
+    ports:
+      - 9094:9094
+    depends_on:
+      - mongodb
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/db_universidad  # Cambia "test" por el nombre de tu base de datos
+
