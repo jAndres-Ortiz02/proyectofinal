@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Profesor Asignatura</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Detalle de Profesor Asignatura</h1>
+        <div th:if="${profesorAsignatura != null}">
+            <dl class="row">
+                <dt class="col-sm-3">ID</dt>
+                <dd class="col-sm-9" th:text="${profesorAsignatura.id}">ID</dd>
+                <dt class="col-sm-3">Profesor ID</dt>
+                <dd class="col-sm-9" th:text="${profesorAsignatura.profesorId}">Profesor ID</dd>
+                <dt class="col-sm-3">Asignatura ID</dt>
+                <dd class="col-sm-9" th:text="${profesorAsignatura.asignaturaId}">Asignatura ID</dd>
+                <dt class="col-sm-3">Grupo</dt>
+                <dd class="col-sm-9" th:text="${profesorAsignatura.grupo}">Grupo</dd>
+                <dt class="col-sm-3">Horario</dt>
+                <dd class="col-sm-9" th:text="${profesorAsignatura.horario}">Horario</dd>
+            </dl>
+            <a th:href="@{/profesor-asignaturas/edit/{id}(id=${profesorAsignatura.id})}" class="btn btn-primary">Editar</a>
+            <a th:href="@{/profesor-asignaturas/delete/{id}(id=${profesorAsignatura.id})}" class="btn btn-danger">Eliminar</a>
+        </div>
+        <div th:if="${profesorAsignatura == null}">
+            <p class="text-danger">Profesor Asignatura no encontrado.</p>
+        </div>
+        <a th:href="@{/profesor-asignaturas}" class="btn btn-secondary mt-3">Volver a la Lista</a>
+    </div>
+</body>
+</html>

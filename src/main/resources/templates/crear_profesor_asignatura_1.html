@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Asociación Profesor Asignatura</title>
+</head>
+<body>
+    <form action="/profesor-asignaturas/crear" method="post">
+        <label for="profesorId">Profesor:</label>
+        <select id="profesorId" name="profesorId">
+            <option value="">Seleccione un profesor</option>
+            <th:block th:each="profesor : ${profesores}">
+                <option th:value="${profesor.id}" th:text="${profesor.nombre} + ' ' + ${profesor.apellido}"></option>
+            </th:block>
+        </select>
+        <label for="asignaturaId">Asignatura:</label>
+        <select id="asignaturaId" name="asignaturaId">
+            <option value="">Seleccione una asignatura</option>
+            <th:block th:each="asignatura : ${asignaturas}">
+                <option th:value="${asignatura.id}" th:text="${asignatura.nombre}"></option>
+            </th:block>
+        </select>
+        <label for="grupo">Grupo:</label>
+        <input type="text" id="grupo" name="grupo">
+        <label for="horario">Horario:</label>
+        <input type="text" id="horario" name="horario">
+        <button type="submit">Crear Asociación</button>
+    </form>
+    <a th:href="@{/profesor-asignaturas}">Volver</a>
+</body>
+</html>

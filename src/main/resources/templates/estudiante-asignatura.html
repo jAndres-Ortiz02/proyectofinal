@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Estudiante Asignatura</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Detalle de Estudiante Asignatura</h1>
+        <div th:if="${estudianteAsignatura != null}">
+            <dl class="row">
+                <dt class="col-sm-3">ID</dt>
+                <dd class="col-sm-9" th:text="${estudianteAsignatura.id}">ID</dd>
+                <dt class="col-sm-3">Estudiante ID</dt>
+                <dd class="col-sm-9" th:text="${estudianteAsignatura.estudianteId}">Estudiante ID</dd>
+                <dt class="col-sm-3">Asignatura ID</dt>
+                <dd class="col-sm-9" th:text="${estudianteAsignatura.asignaturaId}">Asignatura ID</dd>
+                <dt class="col-sm-3">Profesor ID</dt>
+                <dd class="col-sm-9" th:text="${estudianteAsignatura.profesorId}">Profesor ID</dd>
+                <dt class="col-sm-3">Grupo</dt>
+                <dd class="col-sm-9" th:text="${estudianteAsignatura.grupo}">Grupo</dd>
+                <dt class="col-sm-3">Nota 1</dt>
+                <dd class="col-sm-9" th:text="${estudianteAsignatura.nota1}">Nota 1</dd>
+                <dt class="col-sm-3">Nota 2</dt>
+                <dd class="col-sm-9" th:text="${estudianteAsignatura.nota2}">Nota 2</dd>
+                <dt class="col-sm-3">Nota 3</dt>
+                <dd class="col-sm-9" th:text="${estudianteAsignatura.nota3}">Nota 3</dd>
+            </dl>
+            <a th:href="@{/estudiante-asignaturas/edit/{id}(id=${estudianteAsignatura.id})}" class="btn btn-primary">Editar</a>
+        </div>
+        <div th:if="${estudianteAsignatura == null}">
+            <p class="text-danger">Estudiante Asignatura no encontrado.</p>
+        </div>
+        <a th:href="@{/estudiante-asignaturas}" class="btn btn-secondary mt-3">Volver a la Lista</a>
+    </div>
+</body>
+</html>

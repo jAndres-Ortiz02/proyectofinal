@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asociaciones de Profesores y Asignaturas</title>
+</head>
+<body>
+    <h1>Asociaciones de Profesores y Asignaturas</h1>
+    <a th:href="@{/profesor-asignaturas/crear}">Crear nueva asosiación</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Profesor</th>
+                <th>Asignatura</th>
+                <th>Grupo</th>
+                <th>Horario</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="asociacion : ${asociaciones}">
+                <td th:text="${profesorNames.get(asociacion.id)}"></td>
+                <td th:text="${asignaturaNames.get(asociacion.id)}"></td>
+                <td th:text="${asociacion.grupo}"></td>
+                <td th:text="${asociacion.horario}"></td>
+                <td>
+                    <a th:href="@{/profesor-asignaturas/{id}(id=${asociacion.id})}">Consultar</a>
+                    <a th:href="@{/profesor-asignaturas/edit/{id}(id=${asociacion.id})}">Editar</a>
+                    <a th:href="@{/profesor-asignaturas/delete/{id}(id=${asociacion.id})}">Eliminar</a>
+                </td>
+            </tr>
+            <a th:href="@{/universidad/index}">Volver</a>
+        </tbody>
+    </table>
+</body>
+</html>

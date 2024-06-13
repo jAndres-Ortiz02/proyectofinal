@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Profesor Asignatura</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 10px;
+        }
+        .btn-cancel {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Editar Profesor Asignatura</h1>
+        <form th:action="@{/profesor-asignaturas/update/{id}(id=${profesorAsignatura.id})}" th:object="${profesorAsignatura}" method="post">
+            <div class="form-group">
+                <label for="profesorId">Profesor ID:</label>
+                <input type="text" class="form-control" id="profesorId" th:field="*{profesorId}" required>
+            </div>
+            <div class="form-group">
+                <label for="asignaturaId">Asignatura ID:</label>
+                <input type="text" class="form-control" id="asignaturaId" th:field="*{asignaturaId}" required>
+            </div>
+            <div class="form-group">
+                <label for="grupo">Grupo:</label>
+                <input type="text" class="form-control" id="grupo" th:field="*{grupo}" required>
+            </div>
+            <div class="form-group">
+                <label for="horario">Horario:</label>
+                <input type="text" class="form-control" id="horario" th:field="*{horario}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a th:href="@{/profesor-asignaturas}" class="btn btn-secondary btn-cancel">Cancelar</a>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

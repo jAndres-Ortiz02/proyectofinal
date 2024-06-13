@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Profesores</title>
+</head>
+<body>
+<h1>Profesores</h1>
+<a th:href="@{/profesores/crear}">Crear nuevo profesor</a>
+<table>
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="profesor : ${profesores}">
+        <td th:text="${profesor.nombre}">Nombre</td>
+        <td th:text="${profesor.apellido}">Apellido</td>
+        <td th:text="${profesor.email}">Email</td>
+        <td>
+            <a th:href="@{/profesores/{id}(id=${profesor.id})}">Consultar</a>
+            <a th:href="@{/profesores/editar/{id}(id=${profesor.id})}">Editar</a>
+            <a th:href="@{/profesores/eliminar/{id}(id=${profesor.id})}">Eliminar</a>
+        </td>
+    </tr>
+    <a th:href="@{/universidad/index}">Volver</a>
+    </tbody>
+</table>
+</body>
+</html>

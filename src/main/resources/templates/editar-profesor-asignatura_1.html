@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Profesor Asignatura</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Editar Profesor Asignatura</h1>
+        <form th:action="@{/profesor-asignaturas/update/{id}(id=${profesorAsignatura.id})}" th:object="${profesorAsignatura}" method="post">
+            <div class="form-group">
+                <label for="profesorId">Profesor ID</label>
+                <input type="text" class="form-control" id="profesorId" th:field="*{profesorId}" required>
+            </div>
+            <div class="form-group">
+                <label for="asignaturaId">Asignatura ID</label>
+                <input type="text" class="form-control" id="asignaturaId" th:field="*{asignaturaId}" required>
+            </div>
+            <div class="form-group">
+                <label for="grupo">Grupo</label>
+                <input type="text" class="form-control" id="grupo" th:field="*{grupo}" required>
+            </div>
+            <div class="form-group">
+                <label for="horario">Horario</label>
+                <input type="text" class="form-control" id="horario" th:field="*{horario}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a th:href="@{/profesor-asignaturas}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

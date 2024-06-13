@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Asociación Estudiante Asignatura</title>
+</head>
+<body>
+    <form action="/estudiante-asignaturas/crear" method="post">
+        <label for="estudianteId">Estudiante:</label>
+        <select id="estudianteId" name="estudianteId">
+            <option value="">Seleccione un estudiante</option>
+            <th:block th:each="estudiante : ${estudiantes}">
+                <option th:value="${estudiante.id}" th:text="${estudiante.nombre} + ' ' + ${estudiante.apellido}"></option>
+            </th:block>
+        </select>
+        <label for="asignaturaId">Asignatura:</label>
+        <select id="asignaturaId" name="asignaturaId">
+            <option value="">Seleccione una asignatura</option>
+            <th:block th:each="asignatura : ${asignaturas}">
+                <option th:value="${asignatura.id}" th:text="${asignatura.nombre}"></option>
+            </th:block>
+        </select>
+        <label for="grupo">Grupo:</label>
+        <input type="text" id="grupo" name="grupo">
+        <label for="nota1">Nota 1:</label>
+        <input type="text" id="nota1" name="nota1">
+        <label for="nota2">Nota 2:</label>
+        <input type="text" id="nota2" name="nota2">
+        <label for="nota3">Nota 3:</label>
+        <input type="text" id="nota3" name="nota3">
+        <button type="submit">Crear Asociación</button>
+    </form>
+    <a th:href="@{/estudiante-asignaturas}">Volver</a>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+   
+    <!-- Header -->
+    <div th:fragment="header">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <title>Universidad</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+                  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+            <link rel="stylesheet" href="styles.css"/>
+            <style>
+                #sidebar {
+                    width: 20%;
+                    height: 100vh;
+                    background: #343a40;
+                }
+            </style>
+        </head>
+    </div>
+
+
+<body>
+    <!--<div th:fragment="template" >-->
+    
+        <div class="d-flex">
+            <div th:fragment="sidebar" id="sidebar" >
+                
+                <div class="p-2">
+                    <a th:href="@{/universidad/index}" class="navbar-brand text-center text-light w-100 p-4 border-bottom">Universidad</a>
+<!--                    <img th:src="@{/img/Logo-GSE-horizontal-sinfondo.png}" class="img-fluid" alt="Sample image"/>-->
+                </div>
+                <div id="sidebar-accordion" class="accordion">
+                    <div class="list-group">
+                        <a href="#AdminEnvir-items" data-toggle="collapse" aria-expanded="false"
+                           class="list-group-item list-group-item-action bg-dark text-light">
+                            <i class="fa fa-university" aria-hidden="true"></i>Administrar Estudiantes
+                        </a>
+                        <div id="AdminEnvir-items" class="collapse" data-parent="#sidebar-accordion">
+                            <a th:href="@{/estudiantes}" class="list-group-item list-group-item-action bg-dark text-light pl-5">
+                                Ver Estudiantes
+                            </a>
+                            <a th:href="@{/estudiante-asignaturas}" class="list-group-item list-group-item-action bg-dark text-light pl-5">
+                                Ver Estudiantes y Asignaturas
+                            </a>
+                        </div>
+                        <a href="#AdminDispo-items" data-toggle="collapse" aria-expanded="false"
+                           class="list-group-item list-group-item-action bg-dark text-light">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i>Administrar Profesores
+                        </a>
+                        <div id="AdminDispo-items" class="collapse" data-parent="#sidebar-accordion">
+                            <a th:href="@{/profesores}" class="list-group-item list-group-item-action bg-dark text-light pl-5">
+                                Ver Profesores
+                            </a>
+                            <a th:href="@{/profesor-asignaturas}" class="list-group-item list-group-item-action bg-dark text-light pl-5">
+                                Ver Profesores y Asignaturas
+                            </a>
+                        </div>
+                        <a href="#AdminPro-items" data-toggle="collapse" aria-expanded="false"
+                           class="list-group-item list-group-item-action bg-dark text-light">
+                            <i class="fa fa-book" aria-hidden="true"></i>Administrar Asignaturas
+                        </a>
+                        <div id="AdminPro-items" class="collapse" data-parent="#sidebar-accordion">
+                            <a th:href="@{/asignaturas}" class="list-group-item list-group-item-action bg-dark text-light pl-5">
+                                Ver Asignaturas
+                            </a>
+                        </div>  
+<!--                        <a href="#AdminUsers-items" data-toggle="collapse" aria-expanded="false"
+                           class="list-group-item list-group-item-action bg-dark text-light">
+                            <i class="fa fa-user mr-3" aria-hidden="true"></i>Administrar usuarios
+                        </a>-->
+                    </div>
+                </div>
+
+            </div>
+            <div class="content w-100">
+                <div th:fragment="nav" >
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-xl">
+                    </div>
+                </nav>
+                </div>
+                <div th:fragment="contentPage" >
+                    <section class="p-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div th:fragment="contentPage" >
+                                    <h1 style="font-family: 'Impact', sans-serif;">GESTIÓN UNIVERSITARIA</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                </div>
+                
+            </div>
+
+        </div>
+    
+    <footer th:fragment="footer">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
+    </footer>
+</body>
+
+</html>
