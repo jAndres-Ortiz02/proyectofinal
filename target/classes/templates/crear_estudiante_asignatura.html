@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Asociación Estudiante Asignatura</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <style>
+        body {
+            padding: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button[type="submit"], a {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover, a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form th:action="@{/estudiante-asignaturas/crear}" method="post">
+        <h2>Crear Asociación Estudiante Asignatura</h2>
+        <div class="form-group">
+            <label for="estudianteId">Estudiante:</label>
+            <select id="estudianteId" name="estudianteId" class="form-control">
+                <option value="">Seleccione un estudiante</option>
+                <th:block th:each="estudiante : ${estudiantes}">
+                    <option th:value="${estudiante.id}" th:text="${estudiante.nombre} + ' ' + ${estudiante.apellido}"></option>
+                </th:block>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="asignaturaId">Asignatura:</label>
+            <select id="asignaturaId" name="asignaturaId" class="form-control">
+                <option value="">Seleccione una asignatura</option>
+                <th:block th:each="asignatura : ${asignaturas}">
+                    <option th:value="${asignatura.id}" th:text="${asignatura.nombre}"></option>
+                </th:block>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="grupo">Grupo:</label>
+            <input type="text" id="grupo" name="grupo" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="nota1">Nota 1:</label>
+            <input type="text" id="nota1" name="nota1" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="nota2">Nota 2:</label>
+            <input type="text" id="nota2" name="nota2" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="nota3">Nota 3:</label>
+            <input type="text" id="nota3" name="nota3" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Crear Asociación</button>
+    </form>
+    <a th:href="@{/estudiante-asignaturas}" class="btn btn-secondary">Volver</a>
+    
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+</body>
+</html>

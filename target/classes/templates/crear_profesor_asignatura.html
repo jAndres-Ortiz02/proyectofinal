@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Asociación Profesor Asignatura</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+        }
+        select, input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crear Asociación Profesor Asignatura</h1>
+        <form action="/profesor-asignaturas/crear" method="post">
+            <div class="form-group">
+                <label for="profesorId">Profesor:</label>
+                <select id="profesorId" name="profesorId" class="form-control">
+                    <option value="">Seleccione un profesor</option>
+                    <th:block th:each="profesor : ${profesores}">
+                        <option th:value="${profesor.id}" th:text="${profesor.nombre} + ' ' + ${profesor.apellido}"></option>
+                    </th:block>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="asignaturaId">Asignatura:</label>
+                <select id="asignaturaId" name="asignaturaId" class="form-control">
+                    <option value="">Seleccione una asignatura</option>
+                    <th:block th:each="asignatura : ${asignaturas}">
+                        <option th:value="${asignatura.id}" th:text="${asignatura.nombre}"></option>
+                    </th:block>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="grupo">Grupo:</label>
+                <input type="text" id="grupo" name="grupo" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="horario">Horario:</label>
+                <input type="text" id="horario" name="horario" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Crear Asociación</button>
+        </form>
+        <a th:href="@{/profesor-asignaturas}" class="btn btn-secondary">Volver</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Estudiante Asignatura</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Editar Estudiante Asignatura</h1>
+        <form th:action="@{/estudiante-asignaturas/update/{id}(id=${estudianteAsignatura.id})}" th:object="${estudianteAsignatura}" method="post">
+            <div class="form-group">
+                <label for="estudianteId">Estudiante ID</label>
+                <input type="text" class="form-control" id="estudianteId" th:field="*{estudianteId}" required>
+            </div>
+            <div class="form-group">
+                <label for="asignaturaId">Asignatura ID</label>
+                <input type="text" class="form-control" id="asignaturaId" th:field="*{asignaturaId}" required>
+            </div>
+            <div class="form-group">
+                <label for="profesorId">Profesor ID</label>
+                <input type="text" class="form-control" id="profesorId" th:field="*{profesorId}" required>
+            </div>
+            <div class="form-group">
+                <label for="grupo">Grupo</label>
+                <input type="text" class="form-control" id="grupo" th:field="*{grupo}" required>
+            </div>
+            <div class="form-group">
+                <label for="nota1">Nota 1</label>
+                <input type="number" step="0.01" class="form-control" id="nota1" th:field="*{nota1}" required>
+            </div>
+            <div class="form-group">
+                <label for="nota2">Nota 2</label>
+                <input type="number" step="0.01" class="form-control" id="nota2" th:field="*{nota2}" required>
+            </div>
+            <div class="form-group">
+                <label for="nota3">Nota 3</label>
+                <input type="number" step="0.01" class="form-control" id="nota3" th:field="*{nota3}" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a th:href="@{/estudiante-asignaturas}" class="btn btn-secondary ml-2">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
